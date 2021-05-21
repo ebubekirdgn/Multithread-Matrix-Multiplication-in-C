@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
     
     //Getting Matrix1 And Matrix2 Info from User - - - - - - - - - - - - - - -//
     
-    printf(" --- Defining Matrix 1 ---\n\n");
+    //printf(" --- Defining Matrix 1 ---\n\n");
     
     // Getting Row And Column(Same As Row In Matrix2) Number For Matrix1
     printf("Enter number of rows for matrix 1: ");
@@ -60,15 +60,18 @@ int main(int argc, char *argv[]) {
     
     printf("\n --- Initializing Matrix 1 ---\n\n");
     int b,c=0;
+    FILE *dosya1 = fopen("a.txt", "w");
 	for(b=0;b<i;b++){
         for(c=0;c<j;c++){
-            printf("Enter variable [%d,%d]: ",b+1,c+1);
+           // printf("Enter variable [%d,%d]: ",b+1,c+1);
            // scanf("%d",&matrix1[b][c]);
              matrix1[b][c] = rand() % 10 + 1;
+             fprintf(dosya1, "%d ",matrix1[b][c]);
         }
     }
+    fclose(dosya1);
     
-    printf("\n --- Defining Matrix 2 ---\n\n");
+    //printf("\n --- Defining Matrix 2 ---\n\n");
 
     // Getting Column Number For Matrix2
     printf("Number of rows for matrix 2 : %d\n",j);
@@ -77,14 +80,16 @@ int main(int argc, char *argv[]) {
     
     printf("\n --- Initializing Matrix 2 ---\n\n");
     int d,e=0;
+    FILE *dosya2 = fopen("b.txt", "w");
     for(d=0;d<j;d++){
         for(e=0;e<k;e++){
             //printf("Enter variable [%d,%d]: ",d+1,e+1);
             //scanf("%d",&matrix2[d][e]);
             matrix2[d][e] = rand() % 10 + 1;
+            fprintf(dosya2, "%d ",matrix2[d][e]);
         }
     }
-    
+    fclose(dosya2);
     
     //Printing Matrices - - - - - - - - - - - - - - - - - - - - - - - - - - -//
     
@@ -177,4 +182,3 @@ int main(int argc, char *argv[]) {
     
     return 0;
 }
-
