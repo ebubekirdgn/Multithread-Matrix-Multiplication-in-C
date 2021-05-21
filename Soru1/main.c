@@ -3,12 +3,14 @@
 int main()
 {  
 int a[10][10],b[10][10],mul[10][10],r,c,i,j,k;
- 
+/* 
 printf("enter the number of row = ");    
 scanf("%d",&r);    
 printf("enter the number of column = ");    
 scanf("%d",&c);    
- 
+ */
+ r = 10;
+ c=10;
  	//Matrix 1 Random
 	for(i=0;i<r;i++)    
 	{    
