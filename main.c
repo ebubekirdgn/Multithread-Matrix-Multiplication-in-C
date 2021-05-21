@@ -26,7 +26,8 @@ void* mult(void* arg){
     //Calculating Each Element in Result Matrix Using Passed Arguments
     for(a=0;a<j;a++){
         result[p->x][p->y] += matrix1[p->x][a]*matrix2[a][p->y];
-    }
+    	
+	}
     sleep(3);
     
     //End Of Thread
@@ -53,6 +54,8 @@ int main(int argc, char *argv[]) {
     //printf(" --- Defining Matrix 1 ---\n\n");
     
     // Getting Row And Column(Same As Row In Matrix2) Number For Matrix1
+
+
     printf("Enter number of rows for matrix 1: ");
     scanf("%d",&i);
     printf("Enter number of columns for matrix 1: ");
@@ -60,7 +63,13 @@ int main(int argc, char *argv[]) {
     
     printf("\n --- Initializing Matrix 1 ---\n\n");
     int b,c=0;
-    FILE *dosya1 = fopen("a.txt", "w");
+    
+    char buffer[10];
+    char filename[] = "a";
+
+    sprintf(buffer, "%s%d.txt",filename,i);    
+    
+    FILE *dosya1 = fopen(buffer, "w");
 	for(b=0;b<i;b++){
         for(c=0;c<j;c++){
            // printf("Enter variable [%d,%d]: ",b+1,c+1);
@@ -80,8 +89,16 @@ int main(int argc, char *argv[]) {
     
     printf("\n --- Initializing Matrix 2 ---\n\n");
     int d,e=0;
-    FILE *dosya2 = fopen("b.txt", "w");
-    for(d=0;d<j;d++){
+    
+	char buffer2[10];
+    char filename2[] = "b";
+
+    sprintf(buffer2, "%s%d.txt",filename2,j);    
+    
+    FILE *dosya2 = fopen(buffer2, "w");
+	
+	
+	for(d=0;d<j;d++){
         for(e=0;e<k;e++){
             //printf("Enter variable [%d,%d]: ",d+1,e+1);
             //scanf("%d",&matrix2[d][e]);
@@ -159,13 +176,23 @@ int main(int argc, char *argv[]) {
     
     //Print Multiplied Matrix (Result) - - - - - - - - - - - - - - - - - - -//
     
+    
+	char buffer3[10];
+    char filename3[] = "result";
+
+    sprintf(buffer3, "%s%d.txt",filename3,i);    
+    
+    FILE *multiplied_matrix = fopen(buffer3, "w");
+
     printf(" --- Multiplied Matrix ---\n\n");
     for(x=0;x<i;x++){
         for(y=0;y<k;y++){
             printf("%5d",result[x][y]);
+			fprintf(multiplied_matrix, "%d ",result[x][y]);
         }
         printf("\n\n");
     }
+    fclose(multiplied_matrix);
     
     
     //Calculate Total Time Including 3 Soconds Sleep In Each Thread - - - -//
