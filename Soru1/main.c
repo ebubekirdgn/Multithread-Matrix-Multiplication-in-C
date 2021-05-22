@@ -3,12 +3,7 @@
 int main()
 {  
 int a[10][10],b[10][10],mul[10][10],r,c,i,j,k;
-/* 
-printf("enter the number of row = ");    
-scanf("%d",&r);    
-printf("enter the number of column = ");    
-scanf("%d",&c);    
- */
+ 
  r = 10;
  c=10;
  	//Matrix 1 Random
@@ -25,15 +20,15 @@ scanf("%d",&c);
     sprintf(buffer, "%s%d.txt",filename,i);    
     FILE *dosya1 = fopen(buffer, "w");
 	// Matrix 1  Printing
-	printf("First Matrix \n");
+	printf("-----------  MATRIX 1 --------- \n");
 	int f,g=0;
 	for(f=0;f<i;f++){
         for(g=0;g<j;g++){
-            printf("%2d ",a[f][g]);
+            printf(" %2d ",a[f][g]);
             fprintf(dosya1, "%2d ",a[f][g]);
         }
         fprintf(dosya1,"\n"); 
-
+		printf("\n");
     }
     fclose(dosya1);
 		
@@ -51,18 +46,19 @@ scanf("%d",&c);
     sprintf(buffer2, "%s%d.txt",filename2,j);    
     FILE *dosya2 = fopen(buffer2, "w");
 	
-	printf("Second Matrix \n");
+	printf("\n --------------  MATRIX 2----------------\n");
 	int t,y=0;
 	for(t=0;t<i;t++){
         for(y=0;y<j;y++){
-            printf("%2d ",b[t][y]);
-            fprintf(dosya2, "%d ",b[t][y]);
+            printf(" %2d ",b[t][y]);
+            fprintf(dosya2, " %d ",b[t][y]);
         }
         fprintf(dosya2,"\n"); 
+        printf("\n");
     }
 	fclose(dosya2);
  
-printf("multiply of the matrix=\n");    
+printf(" \n\n-----------SERIAL MULTIPLACTION MATRIX ------------- \n");    
 for(i=0;i<r;i++)    
 {    
 	for(j=0;j<c;j++)    
@@ -86,9 +82,10 @@ char buffer3[10];
 		for(j=0;j<c;j++)    
 		{    
 			printf("%d\t",mul[i][j]); 
-			fprintf(result, "%d ",mul[i][j]);   
+			fprintf(result, " %d ",mul[i][j]);   
 		}    
-		fprintf(result,"\n");    
+		fprintf(result,"\n");
+		printf("\n");    
 	}    
 	return 0;  
 }  
