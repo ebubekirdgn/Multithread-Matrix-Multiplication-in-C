@@ -9,6 +9,7 @@ int mat1[4096][4096],mat2[4096][4096],res[4096][4096];
 int m,n;
 void matrix_read()
 {
+	char buffer1[10],buffer2[10]="";
 	int i,j=0;
 	printf("Matrix Length (exp.20x20) : ");
 	scanf("%dx%d",&m,&n);
@@ -16,27 +17,50 @@ void matrix_read()
 	printf("-----------------------------------------\n");
 	
 	printf("Matrix 1 : \n");
+	
+ 
+    char filename[] = "a";
+    
+    sprintf(buffer1, "%s%d.txt",filename,m);    
+    FILE *dosya1 = fopen(buffer1, "w");
+	
 	for(i=0;i<m;i++)
 	{
 		for(j=0;j<n;j++)
 		{
 			mat1[i][j] = rand() % 10 + 1;
+			fprintf(dosya1, "%d ",mat1[i][j]);
 			printf(" %2d ",mat1[i][j]);
 		}
+		fprintf(dosya1,"\n");
 		printf("\n");
+		
 	}
+	fclose(dosya1);
+
 	printf("-----------------------------------------\n");
 	
 	printf("Matrix 2 : \n");
+		
+    char filename2[] = "b";
+
+    sprintf(buffer2, "%s%d.txt",filename2,n);    
+    
+    FILE *dosya2 = fopen(buffer2, "w");
+	
 	for(i=0;i<m;i++)
 	{
 		for(j=0;j<n;j++)
 		{
 			mat2[i][j] = rand() % 10 + 1;
+			fprintf(dosya2, " %d ",mat2[i][j]);
 		    printf(" %2d ",mat2[i][j]);
 		}
+		fprintf(dosya2,"\n");
 		printf("\n");
 	}
+		
+	fclose(dosya2);
 	
 }
 
