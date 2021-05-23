@@ -13,15 +13,16 @@ typedef struct MATRIX
 typedef struct THREAD_DATAS
 {
     MATRIX M,N;
-    MATRIX *result;// = (MATRIX *) malloc(sizeof(MATRIX));
+    MATRIX *result;
     int row;
     int column;
+    
 } THREAD_DATAS;
 
 
 MATRIX* read_matrices();
 
-int** fillMatrix(FILE *f, int rows, int columns);
+int** fill_matrix(FILE *f, int rows, int columns);
 
 //INPUT OUTPUT METHOD
 void write_output(MATRIX *matrices);
@@ -46,9 +47,9 @@ MATRIX* read_matrices()
     {    	
 		fscanf(file, "%d %d\n", &matrices[0].rows, &matrices[0].columns);
 		// FILL MATRICE
-	    matrices[0].data = fillMatrix(file, matrices[0].rows, matrices[0].columns);
+	    matrices[0].data = fill_matrix(file, matrices[0].rows, matrices[0].columns);
 	    fscanf(file, "%d %d\n", &matrices[1].rows, &matrices[1].columns);
-	    matrices[1].data = fillMatrix(file, matrices[1].rows, matrices[1].columns);
+	    matrices[1].data = fill_matrix(file, matrices[1].rows, matrices[1].columns);
 	    
 		fclose(file);
 		return matrices;
@@ -62,20 +63,20 @@ MATRIX* read_matrices()
     
 }
 
-int** fillMatrix(FILE *file, int rows, int columns)
+int** fill_matrix(FILE *file, int rows, int columns)
 {
     int **matrix = (int**) malloc(rows * sizeof(int *));
-    int *newRow;
+    int *new_row;
     int i,j;
     for (i = 0; i < rows; i++)
     {
-        newRow = (int*) malloc(columns * sizeof(int));
+        new_row = (int*) malloc(columns * sizeof(int));
         for(j = 0; j < (columns-1) ; j++)
         {
-            fscanf(file, "%d ", &newRow[j]);
+            fscanf(file, "%d ", &new_row[j]);
         }
-        fscanf(file, "%d\n", &newRow[j]);
-        matrix[i] = newRow;
+        fscanf(file, "%d\n", &new_row[j]);
+        matrix[i] = new_row;
     }
     return matrix;
 }
@@ -130,7 +131,6 @@ void serial_matrix_multiplication(MATRIX M, MATRIX N, MATRIX *C)
     }
     return;
 }
-
 
 void element_by_element(MATRIX M, MATRIX N, MATRIX *C)
 {
@@ -195,8 +195,11 @@ int main()
     clock_t startTime, endTime,total_completion ,end_total_completion_time= 0;
     double elapsed_time = 0;
     end_total_completion_time= clock();
+	
 	startTime = clock();
-    MATRIX *matrices = read_matrices();
+    
+	MATRIX *matrices = read_matrices();
+    
     if(matrices[0].columns != matrices[1].rows)
     {
         printf("OOPPSS!!! ROWS AND COLUMNS DO NOT MATCH WITH EACH OTHER\n");
@@ -211,7 +214,8 @@ int main()
 	printf("\n FILE LOADING TIME : %.0lf micro sec.\n", elapsed_time);
 
     printf("\n**************************************************************\n");
-    // RESULTS MATRICES
+    
+	// RESULTS MATRICES
     MATRIX* result = (MATRIX *)malloc(3 * sizeof(MATRIX));
     startTime, endTime = 0;
     elapsed_time = 0;
