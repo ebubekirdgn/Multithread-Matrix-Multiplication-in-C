@@ -14,5 +14,6 @@ In second approach,we create a separate thread for each element in resultant mat
 ![image](https://user-images.githubusercontent.com/15093808/153595020-f942aa50-f764-4877-8b74-546b9cf31261.png)
 
 Examples: 
+```
 1. Birinci
 2. İkinci
