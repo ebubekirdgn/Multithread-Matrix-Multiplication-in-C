@@ -1,4 +1,4 @@
-# Multithread Matrix Multiplication in C
+# Multiplication of Matrix using threads in C Programming Language
 
 **Multiplication of matrix** does take time surely. Time complexity of matrix multiplication is O(n^3) using normal matrix multiplication. And **Strassen algorithm** improves it and its time complexity is O(n^(2.8074)).
 
