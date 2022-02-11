@@ -32,4 +32,4 @@ Output : Multiplication of A and B
 7 8 6
 
 ```
-[Bağlantı](https://www.geeksforgeeks.org/multiplication-of-matrix-using-threads/)
+[Kaynak : Geeksforgeeks](https://www.geeksforgeeks.org/multiplication-of-matrix-using-threads/)
