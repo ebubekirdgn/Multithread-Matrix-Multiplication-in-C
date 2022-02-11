@@ -30,3 +30,6 @@ Output : Multiplication of A and B
 2 3 2
 4 5 1
 7 8 6
+
+```
+[Bağlantı](https://www.geeksforgeeks.org/multiplication-of-matrix-using-threads/)
