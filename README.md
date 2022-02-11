@@ -15,5 +15,18 @@ In second approach,we create a separate thread for each element in resultant mat
 
 Examples: 
 ```
-1. Birinci
-2. İkinci
+Input : 
+Matrix A
+ 1 0 0
+ 0 1 0
+ 0 0 1
+
+Matrix B
+ 2 3 2
+ 4 5 1
+ 7 8 6
+
+Output : Multiplication of A and B
+2 3 2
+4 5 1
+7 8 6
