@@ -17,7 +17,6 @@ typedef struct parameters {
     int x,y;
 }args;
 
-
 //Function For Calculate Each Element in Result Matrix Used By Threads - - -//
 void* mult(void* arg){
     
@@ -26,19 +25,15 @@ void* mult(void* arg){
     //Calculating Each Element in Result Matrix Using Passed Arguments
     for(a=0;a<j;a++){
         result[p->x][p->y] += matrix1[p->x][a]*matrix2[a][p->y];
-    	
-	}
+    	}
     sleep(3);
     
     //End Of Thread
     pthread_exit(0);
 }
 
-
-
 int main(int argc, char *argv[]) {
-	   
-	   int x,y=0;
+    int x,y=0;
     //Initializing All Defined Matrices By Zero - - - - - - - - - - - - - - -//
     for(x=0;x<10;x++){
         for(y=0;y<10;y++){
@@ -47,10 +42,8 @@ int main(int argc, char *argv[]) {
             result[x][y] = 0;
         }
     }
-    
-    
     //Getting Matrix1 And Matrix2 Info from User - - - - - - - - - - - - - - -//
-    
+   
     //printf(" --- Defining Matrix 1 ---\n\n");
     
     // Getting Row And Column(Same As Row In Matrix2) Number For Matrix1
