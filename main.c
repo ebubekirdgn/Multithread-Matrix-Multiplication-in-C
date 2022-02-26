@@ -122,7 +122,6 @@ int main(int argc, char *argv[]) {
         printf("\n\n");
     }
     
-    
     //Multiply Matrices Using Threads - - - - - - - - - - - - - - - - - - - -//
     
     //Defining Threads
@@ -160,16 +159,13 @@ int main(int argc, char *argv[]) {
         }
     }
     
-    
     //Wait For All Threads Done - - - - - - - - - - - - - - - - - - - - - - //
     int l =0;
     for(l=0;l<(i*k);l++)
         pthread_join(thread[l],NULL );
     
-    
     //Print Multiplied Matrix (Result) - - - - - - - - - - - - - - - - - - -//
-    
-    
+	
 	char buffer3[10];
     char filename3[] = "result";
 
@@ -191,7 +187,6 @@ int main(int argc, char *argv[]) {
     //Calculate Total Time Including 3 Soconds Sleep In Each Thread - - - -//
     
     printf(" ---> Time Elapsed : %.2f Sec\n\n", (double)(time(NULL) - start));
-    
     
     //Total Threads Used In Process - - - - - - - - - - - - - - - - - - - -//
     
