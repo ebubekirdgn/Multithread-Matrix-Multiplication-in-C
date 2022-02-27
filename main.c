@@ -153,8 +153,7 @@ int main(int argc, char *argv[]) {
             if(status!=0){
                 printf("Error In Threads");
                 exit(0);
-            }
-            
+            }   
             thread_number++;
         }
     }
