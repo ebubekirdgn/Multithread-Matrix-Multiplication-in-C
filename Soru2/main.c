@@ -19,7 +19,6 @@ typedef struct THREAD_DATAS
     
 } THREAD_DATAS;
 
-
 MATRIX* read_matrices();
 
 int** fill_matrix(FILE *f, int rows, int columns);
