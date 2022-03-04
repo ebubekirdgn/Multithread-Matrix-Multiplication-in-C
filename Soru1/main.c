@@ -16,7 +16,7 @@ int main()
 		}    
 	}    
 	
-	char buffer[10];
+    char buffer[10];
     char filename[] = "a";
     sprintf(buffer, "%s%d.txt",filename,i);    
     FILE *dosya1 = fopen(buffer, "w");
