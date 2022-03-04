@@ -9,15 +9,13 @@ int mat1[4096][4096],mat2[4096][4096],res[4096][4096];
 int m,n;
 void matrix_read()
 {
-	char buffer1[10],buffer2[10]="";
-	int i,j=0;
-	printf("Matrix Length (exp.20x20) : ");
-	scanf("%dx%d",&m,&n);
+    char buffer1[10],buffer2[10]="";
+    int i,j=0;
+    printf("Matrix Length (exp.20x20) : ");
+    scanf("%dx%d",&m,&n);
 	
-	printf("-----------------------------------------\n");
-	
-	printf("Matrix 1 : \n");
-	
+    printf("-----------------------------------------\n");
+    printf("Matrix 1 : \n");
  
     char filename[] = "a";
     
@@ -59,9 +57,7 @@ void matrix_read()
 		fprintf(dosya2,"\n");
 		printf("\n");
 	}
-		
 	fclose(dosya2);
-	
 }
 
 void print_matrix(int xf[4096][4096])
@@ -79,8 +75,6 @@ void print_matrix(int xf[4096][4096])
 	}
 }
 
-
-
 void *multiplication(void *arg)
 {
 	long int num = (long int)arg;
@@ -96,20 +90,16 @@ void *multiplication(void *arg)
 		for(j=0;j<n;j++)
 		{
 			//res[i][j]=0;
-			
 			for(k=0;k<n;k++)
 			{
 				res[i][j] += mat1[i][k] *mat2[k][j] ;
 			}
 		}
 	} 
-	
 	printf("\n Matrix by thread %ld : \n ",num);
 	printf("\n");
 	print_matrix(res);
 }
-
-
 
 int main() {
 	
@@ -143,4 +133,4 @@ int main() {
         printf(" - Thread %d ID : %d\n",k+1,(int)tid[k]);
 	
 	return 0;
-} 
+}
