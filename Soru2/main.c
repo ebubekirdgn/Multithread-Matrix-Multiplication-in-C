@@ -37,10 +37,8 @@ void calculate_element(MATRIX M, MATRIX N, MATRIX* C, int row, int column);
  
 MATRIX* read_matrices()
 {
- 	MATRIX  *matrices = (MATRIX *) malloc(2 * sizeof(MATRIX));
-    
-	FILE *file = fopen("b256.txt", "r");
-   
+    MATRIX  *matrices = (MATRIX *) malloc(2 * sizeof(MATRIX));
+    FILE *file = fopen("b256.txt", "r");
    
     if(file != NULL)
     {    	
@@ -59,7 +57,6 @@ MATRIX* read_matrices()
    	    printf("FILE NOT FOUND ! PLEASE TRY AGAIN ");
 		exit(0);	
 	}
-    
 }
 
 int** fill_matrix(FILE *file, int rows, int columns)
@@ -97,7 +94,6 @@ void write_output(MATRIX *matrices)
     }
     fclose(f);
 }
-
 
 void print_matrix(MATRIX matrix, char name)
 {
